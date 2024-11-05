@@ -1,14 +1,14 @@
 package model;
 
-import controller.ContaRepository;
+import controller.ContaController;
 
-public abstract class Conta implements ContaRepository {
+public abstract class Conta extends ContaController {
     private int numeroConta;
     private int agencia;
     private int tipo;
     private String nomeTitular;
     private float saldo;
-    
+
     public int getNumeroConta() {
         return numeroConta;
     }
