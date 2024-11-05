@@ -40,6 +40,7 @@ public class Menu {
                     System.out.println("Procurar conta por número");
                     break;
                 case 9:
+                    menuView.sobre();
                     System.out.println("Saindo...");
                     isRunning = false;
                     break;

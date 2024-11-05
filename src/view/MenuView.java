@@ -4,7 +4,7 @@ public class MenuView {
     public void menuPrincipal() {
         System.out.println("*****************************************************");
         System.out.println("                                                     ");
-        System.out.println("                BANCO DO BRAZIL COM Z                ");
+        System.out.println("                Santo André Bank                     ");
         System.out.println("                                                     ");
         System.out.println("*****************************************************");
         System.out.println("                                                     ");
@@ -21,6 +21,18 @@ public class MenuView {
         System.out.println("*****************************************************");
         System.out.println("Entre com a opção desejada:                          ");
         System.out.println("                                                     ");
+    }
+
+    public void sobre(){
+   
+        System.out.println("*****************************************************");
+        System.out.println("                                                     ");
+        System.out.println("            Desenvolvido por:                        ");
+        System.out.println("            - Rodrigo Santos( Rudr1gu )              ");
+        System.out.println("            - github.com/Rudr1gu                     ");
+        System.out.println("                                                     ");
+        System.out.println("*****************************************************");
+        
     }
 
 }
