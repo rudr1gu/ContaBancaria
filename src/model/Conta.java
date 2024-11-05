@@ -9,6 +9,14 @@ public abstract class Conta extends ContaController {
     private String nomeTitular;
     private float saldo;
 
+    public Conta(int numeroConta, int agencia, int tipo, String nomeTitular, float saldo) {
+        this.numeroConta = numeroConta;
+        this.agencia = agencia;
+        this.tipo = tipo;
+        this.nomeTitular = nomeTitular;
+        this.saldo = saldo;
+    }
+
     public int getNumeroConta() {
         return numeroConta;
     }
@@ -38,5 +46,25 @@ public abstract class Conta extends ContaController {
     }
     public void setSaldo(float saldo) {
         this.saldo = saldo;
+    }
+
+    public boolean sacar(float valor) {
+        if (this.saldo >= valor) {
+            this.saldo -= valor;
+            return true;
+        }
+        return false;
+    }
+
+    public void depositar(float valor) {
+        this.saldo += valor;
+    }
+
+    public void visualizar() {
+        System.out.println("Número da conta: " + this.numeroConta);
+        System.out.println("Agência: " + this.agencia);
+        System.out.println("Tipo: " + this.tipo);
+        System.out.println("Nome do titular: " + this.nomeTitular);
+        System.out.println("Saldo: " + this.saldo);
     }
 }
