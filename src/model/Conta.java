@@ -6,14 +6,14 @@ public abstract class Conta extends ContaController {
     private int numeroConta;
     private int agencia;
     private int tipo;
-    private String nomeTitular;
+    private Pessoa pessoa;
     private float saldo;
 
-    public Conta(int numeroConta, int agencia, int tipo, String nomeTitular, float saldo) {
+    public Conta(int numeroConta, int agencia, int tipo, Pessoa pessoa, float saldo) {
         this.numeroConta = numeroConta;
         this.agencia = agencia;
         this.tipo = tipo;
-        this.nomeTitular = nomeTitular;
+        this.pessoa = pessoa;
         this.saldo = saldo;
     }
 
@@ -35,11 +35,11 @@ public abstract class Conta extends ContaController {
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
-    public String getNomeTitular() {
-        return nomeTitular;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
-    public void setNomeTitular(String nomeTitular) {
-        this.nomeTitular = nomeTitular;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
     public float getSaldo() {
         return saldo;
@@ -64,7 +64,7 @@ public abstract class Conta extends ContaController {
         System.out.println("Número da conta: " + this.numeroConta);
         System.out.println("Agência: " + this.agencia);
         System.out.println("Tipo: " + this.tipo);
-        System.out.println("Nome do titular: " + this.nomeTitular);
+        System.out.println("Nome do titular: " + this.pessoa.getNome());
         System.out.println("Saldo: " + this.saldo);
     }
 }

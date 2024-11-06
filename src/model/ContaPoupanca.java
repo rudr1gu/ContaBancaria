@@ -3,8 +3,8 @@ package model;
 public class ContaPoupanca extends Conta{
     private int diaAniversario;
 
-    public ContaPoupanca(int numeroConta, int agencia, int tipo, String nomeTitular, float saldo, int diaAniversario) {
-        super(numeroConta, agencia, tipo, nomeTitular, saldo);
+    public ContaPoupanca(int numeroConta, int agencia, int tipo, Pessoa pessoa, float saldo, int diaAniversario) {
+        super(numeroConta, agencia, tipo, pessoa, saldo);
         this.diaAniversario = diaAniversario;
     }
 

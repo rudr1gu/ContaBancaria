@@ -6,6 +6,7 @@ public class Menu {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         MenuView menuView = new MenuView();
+
         int opcao;
         boolean isRunning = true;
 
@@ -16,6 +17,13 @@ public class Menu {
 
             switch (opcao) {
                 case 1:
+                    System.out.println("Digite a sua idade: ");
+                    int idade = scanner.nextInt();
+                    if(idade < 18){
+                        System.out.println("Você não pode criar uma conta, pois é menor de idade");
+                        break;
+                    }
+
                     System.out.println("Cadastrar conta");
                     break;
                 case 2:
