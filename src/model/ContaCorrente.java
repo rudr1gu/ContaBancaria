@@ -16,4 +16,10 @@ public class ContaCorrente extends Conta{
         this.limite = limite;
     }
 
+    public void visualizar() {
+        super.visualizar();
+        System.out.println("Limite: " + this.limite);
+        
+    }
+
 }

@@ -15,4 +15,10 @@ public class ContaPoupanca extends Conta{
     public void setDiaAniversario(int diaAniversario) {
         this.diaAniversario = diaAniversario;
     }
+
+    public void visualizar() {
+        super.visualizar();
+        System.out.println("Dia do aniversário: " + this.diaAniversario);
+        
+    }
 }

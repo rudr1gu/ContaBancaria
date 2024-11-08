@@ -5,7 +5,7 @@ public class ContaController implements ContaRepository {
 
     @Override
     public void procurarNumero(int numero) {
-        throw new UnsupportedOperationException("Unimplemented method 'procurarNumero'");
+        
     }
 
     @Override
@@ -16,6 +16,7 @@ public class ContaController implements ContaRepository {
     @Override
     public void cadastrar(Conta conta) {
         throw new UnsupportedOperationException("Unimplemented method 'cadastrar'");
+        
     }
 
     @Override
