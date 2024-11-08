@@ -16,6 +16,19 @@ public class Menu {
         contaPoupanca.visualizar();
         contaCorrente.visualizar();
 
+        contaPoupanca.depositar(100);
+        contaCorrente.depositar(100);
+
+        contaPoupanca.visualizar();
+
+        contaCorrente.visualizar();
+
+        contaPoupanca.sacar(100);
+        contaCorrente.sacar(100);
+
+        contaPoupanca.visualizar();
+        contaCorrente.visualizar();
+
         // while (isRunning) {
         //     menuView.menuPrincipal();
 
