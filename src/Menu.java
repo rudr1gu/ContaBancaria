@@ -28,7 +28,6 @@ public class Menu {
                     KeyPress.keyPress();                   
                     break;
                 case 2:
-                    System.out.println("Listar todas as contas");
                     ContaServices.listarTodas();
                     KeyPress.keyPress();
                     break;
@@ -49,11 +48,11 @@ public class Menu {
                     KeyPress.keyPress();
                     break;
                 case 7:
-                    System.out.println("Depositar");
+                    ContaServices.depositar();
                     KeyPress.keyPress();
                     break;
                 case 8:
-                    System.out.println("Transferir valores entre contas");
+                    ContaServices.transferir();
                     KeyPress.keyPress();
                     break;
                 case 9:

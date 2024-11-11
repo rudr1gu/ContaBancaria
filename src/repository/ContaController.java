@@ -69,14 +69,29 @@ public class ContaController implements ContaRepository {
 
     @Override
     public void depositar(int numero, float valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'depositar'");
+        var conta = buscarCollection(numero);
+        if (conta != null) {
+            conta.depositar(valor);
+            System.out.println("Depósito de R$ "+ valor +" realizado com sucesso!");
+        } else {
+            System.out.println("Conta número: "+ numero +" não encontrada!");
+        }
     }
 
     @Override
     public void transferir(int numeroOrigem, int numeroDestino, float valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'transferir'");
+        var contaOrigem = buscarCollection(numeroOrigem);
+        var contaDestino = buscarCollection(numeroDestino);
+
+        if (contaOrigem != null && contaDestino != null) {
+
+            if(contaOrigem.sacar(valor) == true) {
+                contaDestino.depositar(valor);
+                System.out.println("Transferência de R$ "+ valor +" realizada com sucesso!");
+            }
+        } else {
+            System.out.println("Conta número: "+ numeroOrigem +" ou "+ numeroDestino +" não encontrada!");
+        }
     }
 
     public int gerarNumeroConta() {

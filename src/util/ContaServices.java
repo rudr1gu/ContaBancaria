@@ -44,6 +44,7 @@ public abstract class ContaServices {
         }
 
         public static void listarTodas() {
+            System.out.println("Listar todas as contas");
             contas.listarTodas();
         }
 
@@ -110,5 +111,33 @@ public abstract class ContaServices {
             } while (valor <= 0);
            
             contas.sacar(numero, valor);
+        }
+
+        public static void depositar() {
+            System.out.println("Depositar \n");
+
+            System.out.println("Digite o número da conta: ");
+            int numero = scanner.nextInt();
+            do{
+                System.out.println("Digite o valor do depósito (R$): ");
+                valor = scanner.nextFloat();
+            } while (valor <= 0);
+            
+            contas.depositar(numero, valor);
+        }
+
+        public static void transferir() {
+            System.out.println("Transferir valores entre contas \n");
+
+            System.out.println("Digite o número da conta de origem: ");
+            int numeroOrigem = scanner.nextInt();
+            System.out.println("Digite o número da conta de destino: ");
+            numeroDestino = scanner.nextInt();
+            do{
+                System.out.println("Digite o valor da transferência (R$): ");
+                valor = scanner.nextFloat();
+            } while (valor <= 0);
+            
+            contas.transferir(numeroOrigem, numeroDestino, valor);
         }
 }
