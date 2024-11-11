@@ -1,24 +1,34 @@
-package controller;
+package repository;
+import java.util.ArrayList;
+
 import model.Conta;
 
 public class ContaController implements ContaRepository {
 
+    private ArrayList<Conta> listaContas = new ArrayList<Conta>();
+    int numero = 0;
+
     @Override
     public void procurarPorNumero(int numero) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'procurarPorNumero'");
+        Conta conta = buscarCollection(numero);
+        if (conta != null) {
+            conta.visualizar();
+        } else {
+            System.out.println("Conta numero: " + numero + " não encontrada!");
+        }
     }
 
     @Override
     public void listarTodas() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listarTodas'");
+        for (Conta conta : listaContas) {
+            conta.visualizar();
+        }
     }
 
     @Override
     public void cadastrar(Conta conta) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cadastrar'");
+       listaContas.add(conta);
+       System.out.println("Conta número: "+ conta.getNumeroConta() +" cadastrada com sucesso!");
     }
 
     @Override
@@ -49,6 +59,19 @@ public class ContaController implements ContaRepository {
     public void transferir(int numeroOrigem, int numeroDestino, float valor) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'transferir'");
+    }
+
+    public int gerarNumeroConta() {
+        return ++ numero;
+    }
+
+    public Conta buscarCollection(int numero) {
+        for (Conta conta : listaContas) {
+            if (conta.getNumeroConta() == numero) {
+                return conta;
+            }
+        }
+        return null;
     }
 
   

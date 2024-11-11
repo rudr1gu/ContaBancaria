@@ -1,6 +1,6 @@
 package model;
 
-import controller.ContaController;
+import repository.ContaController;
 
 public abstract class Conta extends ContaController {
     private int numeroConta;

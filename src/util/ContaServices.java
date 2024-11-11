@@ -1,0 +1,56 @@
+package util;
+
+import java.util.Scanner;
+
+import model.ContaCorrente;
+import model.ContaPoupanca;
+import repository.ContaController;
+
+public abstract class ContaServices {
+    static Scanner scanner = new Scanner(System.in);
+    static ContaController contas = new ContaController();
+    
+        static int agencia, tipo, aniversario;
+        static float saldo, limite;
+    
+        public static void cadastrarConta() {
+            System.out.println("Cadastrar conta \n");
+            System.out.println("Digite o número da agência: ");
+            agencia = scanner.nextInt();
+            System.out.println("Digite o nome do titular: ");
+            scanner.nextLine();
+            String titular = scanner.nextLine();
+    
+            do {
+                System.out.println("Digite o tipo da conta: \n1 - Conta Corrente\n2 - Conta Poupança");
+                tipo = scanner.nextInt();
+            } while (tipo != 1 && tipo != 2);
+    
+            System.out.println("Digite o saldo inicial (R$): ");
+            saldo = scanner.nextFloat();
+    
+            switch (tipo) {
+                case 1 -> {
+                    System.out.println("Digite o limite da conta corrente (R$): ");
+                    limite = scanner.nextFloat();
+                    contas.cadastrar(new ContaCorrente(contas.gerarNumeroConta(), agencia, tipo, titular, saldo, limite));
+                }
+                case 2 -> {
+                    System.out.println("Digite o dia de aniversário da conta poupança: ");
+                    aniversario = scanner.nextInt();
+                    contas.cadastrar(new ContaPoupanca(contas.gerarNumeroConta(), agencia, tipo, titular, saldo, aniversario));
+                }
+            }
+        }
+
+        public static void listarTodas() {
+            contas.listarTodas();
+        }
+
+        public static void buscarPorNumero() {
+            System.out.println("Buscar conta por número \n");
+            System.out.println("Digite o número da conta: ");
+            int numero = scanner.nextInt();
+            contas.procurarPorNumero(numero);
+        }
+}

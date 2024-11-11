@@ -1,4 +1,4 @@
-package controller;
+package repository;
 import model.Conta;
 
 public interface ContaRepository {

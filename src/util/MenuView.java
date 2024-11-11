@@ -1,9 +1,9 @@
-package view;
+package util;
 
-public class MenuView {
+public abstract class MenuView {
     
 
-    public void menuPrincipal() {
+    public static void menuPrincipal() {
         System.out.println("");
         System.out.println("*****************************************************");
         System.out.println("                                                     ");
@@ -26,7 +26,7 @@ public class MenuView {
         System.out.println("                                                     ");
     }
 
-    public void sobre(){
+    public static void sobre(){
    
         System.out.println("*****************************************************");
         System.out.println("                                                     ");
