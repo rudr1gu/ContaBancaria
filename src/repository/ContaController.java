@@ -106,6 +106,4 @@ public class ContaController implements ContaRepository {
         }
         return null;
     }
-
-  
 } 

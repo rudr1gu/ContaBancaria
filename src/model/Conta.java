@@ -1,9 +1,8 @@
 package model;
 
-import repository.ContaController;
 import util.Cores;
 
-public abstract class Conta extends ContaController {
+public abstract class Conta{
     private int numeroConta;
     private int agencia;
     private int tipo;
