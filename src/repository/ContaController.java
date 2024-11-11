@@ -33,14 +33,26 @@ public class ContaController implements ContaRepository {
 
     @Override
     public void atualizar(Conta conta) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+       var buscaConta = buscarCollection(conta.getNumeroConta());
+
+       if(buscaConta != null) {
+           listaContas.set(listaContas.indexOf(buscaConta), conta);
+           System.out.println("\nConta número: "+ conta.getNumeroConta() +" atualizada com sucesso!");
+       } else {
+           System.out.println("\nConta número: "+ conta.getNumeroConta() +" não encontrada!");
+       }
     }
 
     @Override
     public void deletar(int numero) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletar'");
+        var conta = buscarCollection(numero);
+        if (conta != null) {
+            if(listaContas.remove(conta) == true) {
+                System.out.println("Conta número: "+ numero +" deletada com sucesso!");
+            }    
+        } else {
+            System.out.println("Conta número: "+ numero +" não encontrada!");
+        }
     }
 
     @Override

@@ -37,11 +37,11 @@ public class Menu {
                     KeyPress.keyPress();
                     break;
                 case 4:
-                    System.out.println("Atualizar dados da conta");
+                    ContaServices.atualizarConta();
                     KeyPress.keyPress();
                     break;
                 case 5:
-                    System.out.println("Apagar conta");
+                    ContaServices.deletarConta();
                     KeyPress.keyPress();
                     break;
                 case 6:

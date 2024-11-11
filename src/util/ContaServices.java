@@ -53,4 +53,49 @@ public abstract class ContaServices {
             int numero = scanner.nextInt();
             contas.procurarPorNumero(numero);
         }
+
+        public static void atualizarConta() {
+            System.out.println("Atualizar dados da conta \n");
+
+            System.out.println("Digite o número da conta: ");
+            int numero = scanner.nextInt();
+            
+            var buscaConta = contas.buscarCollection(numero);
+
+            if(buscaConta != null) {
+
+                System.out.println("Digite o número da agência: ");
+                agencia = scanner.nextInt();
+
+                System.out.println("Digite o nome do titular: ");
+                scanner.nextLine();
+                String titular = scanner.nextLine();
+        
+                System.out.println("Digite o saldo (R$): ");
+                saldo = scanner.nextFloat();
+
+                switch (buscaConta.getTipo()) {
+                    case 1 -> {
+                        System.out.println("Digite o limite da conta corrente (R$): ");
+                        limite = scanner.nextFloat();
+                        contas.atualizar(new ContaCorrente(numero, agencia, buscaConta.getTipo(), titular, saldo, limite));
+                    }
+                    case 2 -> {
+                        System.out.println("Digite o dia de aniversário da conta poupança: ");
+                        aniversario = scanner.nextInt();
+                        contas.atualizar(new ContaPoupanca(numero, agencia, buscaConta.getTipo(), titular, saldo, aniversario));
+                    }
+                    default -> System.out.println("Tipo de conta inválido");
+                }
+            } else {
+                System.out.println("\nConta número: "+ numero +" não encontrada!");
+            }
+        }
+
+        public static void deletarConta() {
+            System.out.println("Apagar conta \n");
+            System.out.println("Digite o número da conta: ");
+            int numero = scanner.nextInt();
+            contas.deletar(numero);
+        }
 }
