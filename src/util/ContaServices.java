@@ -10,8 +10,8 @@ public abstract class ContaServices {
     static Scanner scanner = new Scanner(System.in);
     static ContaController contas = new ContaController();
     
-        static int agencia, tipo, aniversario;
-        static float saldo, limite;
+        static int agencia, tipo, aniversario, numeroDestino;
+        static float saldo, limite, valor;
     
         public static void cadastrarConta() {
             System.out.println("Cadastrar conta \n");
@@ -97,5 +97,18 @@ public abstract class ContaServices {
             System.out.println("Digite o número da conta: ");
             int numero = scanner.nextInt();
             contas.deletar(numero);
+        }
+
+        public static void sacar() {
+            System.out.println("Sacar \n");
+
+            System.out.println("Digite o número da conta: ");
+            int numero = scanner.nextInt();
+            do{
+                System.out.println("Digite o valor do saque (R$): ");
+                valor = scanner.nextFloat();
+            } while (valor <= 0);
+           
+            contas.sacar(numero, valor);
         }
 }

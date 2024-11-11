@@ -57,8 +57,14 @@ public class ContaController implements ContaRepository {
 
     @Override
     public void sacar(int numero, float valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'sacar'");
+        var conta = buscarCollection(numero);
+        if (conta != null) {
+            if(conta.sacar(valor) == true) {
+                System.out.println("Saque de R$ "+ valor +" realizado com sucesso!");
+            }
+        } else {
+            System.out.println("Conta número: "+ numero +" não encontrada!");
+        }
     }
 
     @Override

@@ -45,7 +45,7 @@ public class Menu {
                     KeyPress.keyPress();
                     break;
                 case 6:
-                    System.out.println("Sacar");
+                    ContaServices.sacar();
                     KeyPress.keyPress();
                     break;
                 case 7:
