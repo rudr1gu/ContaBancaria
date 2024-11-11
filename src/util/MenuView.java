@@ -33,7 +33,7 @@ public abstract class MenuView {
         System.out.println("            Desenvolvido por:                        ");
         System.out.println(Cores.TEXT_GREEN_BRIGHT + "            - Rodrigo Santos( Rudr1gu )              " + Cores.TEXT_RESET);
         System.out.println("            - github.com/Rudr1gu                     ");
-        System.out.println("                                                     ");
+        System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + "            Generation Brasil - Turma 78             "+ Cores.TEXT_RESET);
         System.out.println("*****************************************************");
         
     }

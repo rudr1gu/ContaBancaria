@@ -1,6 +1,7 @@
 package model;
 
 import repository.ContaController;
+import util.Cores;
 
 public abstract class Conta extends ContaController {
     private int numeroConta;
@@ -74,7 +75,7 @@ public abstract class Conta extends ContaController {
 		}
 		
 		System.out.println("\n\n***********************************************************");
-		System.out.println("Dados da Conta:");
+		System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + "                       Dados da Conta:" + Cores.TEXT_RESET);
 		System.out.println("***********************************************************");
 		System.out.println("Numero da Conta: " + this.numeroConta);
 		System.out.println("Agência: " + this.agencia);
