@@ -46,36 +46,35 @@ public class ContaController implements ContaRepository {
     @Override
     public void deletar(int numero) {
         var conta = buscarCollection(numero);
-        if (conta != null) {
-            if(listaContas.remove(conta) == true) {
-                System.out.println("Conta número: "+ numero +" deletada com sucesso!");
-            }    
-        } else {
-            System.out.println("Conta número: "+ numero +" não encontrada!");
-        }
+
+        Optional<Conta> contaOptional = Optional.ofNullable(conta);
+        contaOptional.ifPresentOrElse(c -> {
+            listaContas.remove(c);
+            System.out.println("Conta número: "+ numero +" deletada com sucesso!");
+        }, () -> System.out.println("Conta número: "+ numero +" não encontrada!"));
     }
 
     @Override
     public void sacar(int numero, float valor) {
         var conta = buscarCollection(numero);
-        if (conta != null) {
-            if(conta.sacar(valor) == true) {
+
+        Optional<Conta> contaOptional = Optional.ofNullable(conta);
+        contaOptional.ifPresentOrElse(c -> {
+            if(c.sacar(valor) == true) {
                 System.out.println("Saque de R$ "+ valor +" realizado com sucesso!");
             }
-        } else {
-            System.out.println("Conta número: "+ numero +" não encontrada!");
-        }
+        }, () -> System.out.println("Conta número: "+ numero +" não encontrada!"));
     }
 
     @Override
     public void depositar(int numero, float valor) {
         var conta = buscarCollection(numero);
-        if (conta != null) {
-            conta.depositar(valor);
+
+        Optional<Conta> contaOptional = Optional.ofNullable(conta);
+        contaOptional.ifPresentOrElse(c -> {
+            c.depositar(valor);
             System.out.println("Depósito de R$ "+ valor +" realizado com sucesso!");
-        } else {
-            System.out.println("Conta número: "+ numero +" não encontrada!");
-        }
+        }, () -> System.out.println("Conta número: "+ numero +" não encontrada!"));
     }
 
     @Override
@@ -83,15 +82,27 @@ public class ContaController implements ContaRepository {
         var contaOrigem = buscarCollection(numeroOrigem);
         var contaDestino = buscarCollection(numeroDestino);
 
-        if (contaOrigem != null && contaDestino != null) {
+        Optional<Conta> contaOrigemOptional = Optional.ofNullable(contaOrigem);
+        Optional<Conta> contaDestinoOptional = Optional.ofNullable(contaDestino);
 
-            if(contaOrigem.sacar(valor) == true) {
-                contaDestino.depositar(valor);
-                System.out.println("Transferência de R$ "+ valor +" realizada com sucesso!");
-            }
-        } else {
-            System.out.println("Conta número: "+ numeroOrigem +" ou "+ numeroDestino +" não encontrada!");
-        }
+        contaOrigemOptional.ifPresentOrElse(c -> {
+            contaDestinoOptional.ifPresentOrElse(d -> {
+                if(c.sacar(valor) == true) {
+                    d.depositar(valor);
+                    System.out.println("Transferência de R$ "+ valor +" realizada com sucesso!");
+                }
+            }, () -> System.out.println("Conta número: "+ numeroDestino +" não encontrada!"));
+        }, () -> System.out.println("Conta número: "+ numeroOrigem +" não encontrada!"));
+
+        // if (contaOrigem != null && contaDestino != null) {
+
+        //     if(contaOrigem.sacar(valor) == true) {
+        //         contaDestino.depositar(valor);
+        //         System.out.println("Transferência de R$ "+ valor +" realizada com sucesso!");
+        //     }
+        // } else {
+        //     System.out.println("Conta número: "+ numeroOrigem +" ou "+ numeroDestino +" não encontrada!");
+        // }
     }
 
     public int gerarNumeroConta() {
