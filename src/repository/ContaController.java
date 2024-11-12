@@ -93,16 +93,6 @@ public class ContaController implements ContaRepository {
                 }
             }, () -> System.out.println("Conta número: "+ numeroDestino +" não encontrada!"));
         }, () -> System.out.println("Conta número: "+ numeroOrigem +" não encontrada!"));
-
-        // if (contaOrigem != null && contaDestino != null) {
-
-        //     if(contaOrigem.sacar(valor) == true) {
-        //         contaDestino.depositar(valor);
-        //         System.out.println("Transferência de R$ "+ valor +" realizada com sucesso!");
-        //     }
-        // } else {
-        //     System.out.println("Conta número: "+ numeroOrigem +" ou "+ numeroDestino +" não encontrada!");
-        // }
     }
 
     public int gerarNumeroConta() {
