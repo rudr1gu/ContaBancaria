@@ -36,12 +36,11 @@ public class ContaController implements ContaRepository {
     public void atualizar(Conta conta) {
        var buscaConta = buscarCollection(conta.getNumeroConta());
 
-       if(buscaConta != null) {
-           listaContas.set(listaContas.indexOf(buscaConta), conta);
-           System.out.println("\nConta número: "+ conta.getNumeroConta() +" atualizada com sucesso!");
-       } else {
-           System.out.println("\nConta número: "+ conta.getNumeroConta() +" não encontrada!");
-       }
+         Optional<Conta> contaOptional = Optional.ofNullable(buscaConta);
+            contaOptional.ifPresentOrElse(c -> {
+                listaContas.set(listaContas.indexOf(c), conta);
+                System.out.println("\nConta número: "+ conta.getNumeroConta() +" atualizada com sucesso!");
+            }, () -> System.out.println("\nConta número: "+ conta.getNumeroConta() +" não encontrada!"));
     }
 
     @Override
