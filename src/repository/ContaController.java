@@ -1,5 +1,8 @@
 package repository;
+
+
 import java.util.ArrayList;
+import java.util.Optional;
 
 import model.Conta;
 
@@ -11,11 +14,9 @@ public class ContaController implements ContaRepository {
     @Override
     public void procurarPorNumero(int numero) {
         Conta conta = buscarCollection(numero);
-        if (conta != null) {
-            conta.visualizar();
-        } else {
-            System.out.println("Conta numero: " + numero + " não encontrada!");
-        }
+
+        Optional<Conta> contaOptional = Optional.ofNullable(conta);
+        contaOptional.ifPresentOrElse(Conta::visualizar, () -> System.out.println("Conta número: " + numero + " não encontrada!"));
     }
 
     @Override
